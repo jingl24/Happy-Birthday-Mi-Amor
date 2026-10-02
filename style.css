@@ -1,0 +1,703 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    overflow: hidden;
+    background: #ffd6e7;
+    color: #5a263d;
+}
+
+
+/* ========================= */
+/* PINK BACKGROUND */
+/* ========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255, 255, 255, 0.85),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255, 174, 204, 0.75),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 85%,
+            rgba(255, 193, 215, 0.8),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(255, 226, 237, 0.9),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #ffdce9,
+            #ffc1d7,
+            #ffe5ef
+        );
+
+    z-index: -3;
+}
+
+
+/* ========================= */
+/* FLOATING HEARTS & STARS */
+/* ========================= */
+
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.particles::before {
+    content: "♡  ✦  ♡  ✧  ·  ♡  ✦  ♡  ·  ✧";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    font-size: 20px;
+    line-height: 100px;
+    letter-spacing: 30px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    animation: floating 15s linear infinite;
+}
+
+.particles::after {
+    content: "✧  ♡  ·  ✦  ♡  ·  ✧  ♡  ✦";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    font-size: 15px;
+    line-height: 130px;
+    letter-spacing: 40px;
+
+    color: rgba(255, 255, 255, 0.5);
+
+    animation: floatingTwo 20s linear infinite;
+}
+
+@keyframes floating {
+    from {
+        transform: translateY(-100px);
+    }
+
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes floatingTwo {
+    from {
+        transform: translateY(-200px);
+    }
+
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+
+/* ========================= */
+/* PAGES */
+/* ========================= */
+
+.page {
+    position: absolute;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.05);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0.8s;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+
+/* ========================= */
+/* PAGE 1 */
+/* ========================= */
+
+.content {
+    max-width: 850px;
+}
+
+.small-text {
+    text-transform: uppercase;
+
+    letter-spacing: 6px;
+
+    font-size: 11px;
+
+    color: #9b4d6c;
+
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(70px, 12vw, 150px);
+
+    font-weight: 400;
+
+    line-height: 0.9;
+
+    background: linear-gradient(
+        120deg,
+        #8e3158,
+        #d65c8c,
+        #a84270
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    text-shadow:
+        0 5px 20px rgba(180, 70, 110, 0.15);
+}
+
+.content h2 {
+    font-family: "DM Serif Display", serif;
+
+    font-weight: 400;
+
+    font-size: clamp(22px, 4vw, 40px);
+
+    margin-top: 25px;
+
+    color: #71334e;
+}
+
+.intro {
+    max-width: 550px;
+
+    margin: 30px auto 40px;
+
+    line-height: 1.9;
+
+    color: #7e5265;
+
+    font-size: 14px;
+}
+
+
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+
+.open-btn,
+.next-btn {
+    border: 1px solid rgba(160, 70, 105, 0.25);
+
+    background: rgba(255, 255, 255, 0.45);
+
+    color: #71334e;
+
+    padding: 16px 28px;
+
+    border-radius: 50px;
+
+    font-family: "Montserrat", sans-serif;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 10px 30px rgba(160, 60, 100, 0.08);
+}
+
+.open-btn {
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+.open-btn span {
+    margin-left: 10px;
+
+    font-size: 18px;
+}
+
+.open-btn:hover,
+.next-btn:hover {
+    background: rgba(255, 255, 255, 0.75);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(170, 65, 105, 0.18);
+}
+
+
+/* ========================= */
+/* MESSAGE CARDS */
+/* ========================= */
+
+.message-card {
+    width: min(650px, 92vw);
+
+    padding: 45px;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 25px 80px rgba(150, 60, 95, 0.15);
+}
+
+.number {
+    color: #b14d76;
+
+    letter-spacing: 5px;
+
+    font-size: 11px;
+
+    margin-bottom: 15px;
+}
+
+.message-card h2 {
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(35px, 6vw, 55px);
+
+    font-weight: 400;
+
+    color: #71334e;
+}
+
+.line {
+    width: 60px;
+
+    height: 1px;
+
+    background: #b96785;
+
+    margin: 25px auto;
+}
+
+.message-card p {
+    color: #704d5d;
+
+    line-height: 1.9;
+
+    font-size: 14px;
+
+    margin-bottom: 18px;
+}
+
+.signature {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 27px !important;
+
+    color: #a84068 !important;
+
+    margin-top: 30px;
+}
+
+.highlight {
+    font-family: "DM Serif Display", serif;
+
+    font-size: 19px !important;
+
+    color: #9a3f65 !important;
+}
+
+
+/* ========================= */
+/* NEXT BUTTON */
+/* ========================= */
+
+.next-btn {
+    position: absolute;
+
+    bottom: 35px;
+
+    right: 40px;
+}
+
+
+/* ========================= */
+/* MUSIC BUTTON */
+/* ========================= */
+
+.music-btn {
+    position: fixed;
+
+    top: 25px;
+
+    right: 25px;
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(160, 70, 105, 0.25);
+
+    background: rgba(255, 255, 255, 0.5);
+
+    color: #8e3158;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    z-index: 100;
+
+    backdrop-filter: blur(15px);
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 8px 25px rgba(150, 50, 90, 0.1);
+}
+
+.music-btn:hover {
+    transform: rotate(15deg) scale(1.1);
+
+    background: rgba(255, 255, 255, 0.8);
+}
+
+
+/* ========================= */
+/* FINAL PAGE */
+/* ========================= */
+
+.final-page {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.35),
+            transparent 65%
+        );
+}
+
+
+/* ========================= */
+/* SPOTIFY STYLE PLAYER */
+/* ========================= */
+
+.spotify-player {
+    width: min(430px, 92vw);
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 245, 249, 0.72);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 30px 80px rgba(145, 55, 90, 0.2);
+
+    backdrop-filter: blur(20px);
+
+    text-align: left;
+}
+
+
+/* ========================= */
+/* VIDEO */
+/* ========================= */
+
+.album-area {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background: #f4b4ca;
+
+    box-shadow:
+        0 15px 40px rgba(140, 50, 85, 0.18);
+}
+
+.birthday-video {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ========================= */
+/* SONG INFORMATION */
+/* ========================= */
+
+.song-info {
+    margin-top: 22px;
+}
+
+.playing {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #a75b78;
+
+    margin-bottom: 7px;
+}
+
+.song-info h2 {
+    font-family: "DM Serif Display", serif;
+
+    font-size: 26px;
+
+    font-weight: 400;
+
+    color: #71334e;
+}
+
+.song-info p:last-child {
+    color: #986c7e;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+}
+
+
+/* ========================= */
+/* PROGRESS BAR */
+/* ========================= */
+
+.progress-area {
+    margin-top: 25px;
+}
+
+.progress-bar {
+    height: 4px;
+
+    background: rgba(160, 70, 105, 0.15);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+
+    height: 100%;
+
+    background: #b94f79;
+
+    border-radius: 10px;
+
+    transition: width 0.2s linear;
+}
+
+.time {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 8px;
+
+    font-size: 9px;
+
+    color: #9d7182;
+}
+
+
+/* ========================= */
+/* CONTROLS */
+/* ========================= */
+
+.controls {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 20px;
+}
+
+.controls button {
+    border: none;
+
+    background: transparent;
+
+    color: #8f3b61;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.controls button:hover {
+    transform: scale(1.15);
+}
+
+.controls .play-main {
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+    background: #a9436c;
+
+    color: white;
+
+    font-size: 19px;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 8px 25px rgba(160, 55, 95, 0.25);
+}
+
+.controls .play-main:hover {
+    transform: scale(1.08);
+}
+
+
+/* ========================= */
+/* FINAL MESSAGE */
+/* ========================= */
+
+.final-message {
+    text-align: center;
+
+    margin-top: 25px;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 32px;
+
+    color: #a84068;
+}
+
+
+/* ========================= */
+/* SCROLL HINT */
+/* ========================= */
+
+.scroll-hint {
+    position: absolute;
+
+    bottom: 25px;
+
+    color: #a84b70;
+
+    opacity: 0.6;
+
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 600px) {
+
+    .message-card {
+        padding: 30px 22px;
+    }
+
+    .message-card p {
+        font-size: 13px;
+    }
+
+    .next-btn {
+        right: 50%;
+
+        transform: translateX(50%);
+    }
+
+    .next-btn:hover {
+        transform: translateX(50%) translateY(-3px);
+    }
+
+    .spotify-player {
+        padding: 18px;
+    }
+
+    .music-btn {
+        top: 15px;
+        right: 15px;
+    }
+}

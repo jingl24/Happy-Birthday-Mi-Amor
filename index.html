@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Mi Amor</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Floating background -->
+    <div class="particles"></div>
+
+    <!-- ========================= -->
+    <!-- MUSIC -->
+    <!-- ========================= -->
+
+    <audio id="birthdayMusic" loop>
+        <source src="hbd.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music button -->
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+        ♫
+    </button>
+
+
+    <!-- ========================= -->
+    <!-- PAGE 1 -->
+    <!-- ========================= -->
+
+    <section class="page active" id="page1">
+
+        <div class="content">
+
+            <p class="small-text">
+                A little surprise for someone special
+            </p>
+
+            <h1>
+                Happy Birthday
+            </h1>
+
+            <h2>
+                My Favorite Person
+            </h2>
+
+            <p class="intro">
+                Today is a special day because it celebrates
+                the wonderful person you are.
+            </p>
+
+            <button class="open-btn" onclick="startSurprise()">
+                Open Your Surprise
+                <span>♡</span>
+            </button>
+
+        </div>
+
+        <div class="scroll-hint">
+            ✦
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- PAGE 2 -->
+    <!-- ========================= -->
+
+    <section class="page" id="page2">
+
+        <div class="message-card">
+
+            <div class="number">
+                01
+            </div>
+
+            <h2>
+                For Your Special Day
+            </h2>
+
+            <div class="line"></div>
+
+            <p>
+                Another year has passed, and today is a beautiful
+                reminder of how far you have come.
+            </p>
+
+            <p>
+                I hope this birthday brings you moments that make
+                you smile, memories that stay with you, and people
+                who remind you how appreciated you are.
+            </p>
+
+            <p class="signature">
+                — From someone who cares about you
+            </p>
+
+        </div>
+
+        <button class="next-btn" onclick="nextPage()">
+            Continue →
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- PAGE 3 -->
+    <!-- ========================= -->
+
+    <section class="page" id="page3">
+
+        <div class="message-card">
+
+            <div class="number">
+                02
+            </div>
+
+            <h2>
+                A Little Message
+            </h2>
+
+            <div class="line"></div>
+
+            <p>
+                I hope you never forget how much your presence
+                can brighten an ordinary day.
+            </p>
+
+            <p>
+                Keep chasing the things that make you happy.
+                Keep believing in yourself, even on the days
+                when things don't go exactly as planned.
+            </p>
+
+            <p>
+                You deserve beautiful moments, genuine smiles,
+                peaceful days, and many reasons to celebrate.
+            </p>
+
+        </div>
+
+        <button class="next-btn" onclick="nextPage()">
+            Continue →
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- PAGE 4 -->
+    <!-- ========================= -->
+
+    <section class="page" id="page4">
+
+        <div class="message-card">
+
+            <div class="number">
+                03
+            </div>
+
+            <h2>
+                One More Thing
+            </h2>
+
+            <div class="line"></div>
+
+            <p>
+                Birthdays are not only about getting older.
+                They are also about celebrating the memories
+                you've created and the people you've met along
+                the way.
+            </p>
+
+            <p>
+                So today, take a moment to appreciate yourself,
+                smile a little more, and enjoy your special day.
+            </p>
+
+            <p class="highlight">
+                May this new chapter bring you countless
+                beautiful memories. ✨
+            </p>
+
+        </div>
+
+        <button class="next-btn" onclick="nextPage()">
+            One Last Surprise →
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- PAGE 5 -->
+    <!-- ========================= -->
+
+    <section class="page final-page" id="page5">
+
+        <div class="spotify-player">
+
+            <!-- Video -->
+            <div class="album-area">
+
+                <video
+                    id="birthdayVideo"
+                    class="birthday-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                >
+                    <source src="birthday-video.mp4" type="video/mp4">
+                </video>
+
+            </div>
+
+
+            <!-- Song information -->
+            <div class="song-info">
+
+                <p class="playing">
+                    NOW PLAYING
+                </p>
+
+                <h2>
+                    Happy Birthday
+                </h2>
+
+                <p>
+                    A little birthday soundtrack ♡
+                </p>
+
+            </div>
+
+
+            <!-- Progress bar -->
+            <div class="progress-area">
+
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+
+                <div class="time">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+
+            </div>
+
+
+            <!-- Controls -->
+            <div class="controls">
+
+                <button onclick="restartMusic()">
+                    ↶
+                </button>
+
+                <button
+                    class="play-main"
+                    onclick="toggleMusic()"
+                    id="mainPlay"
+                >
+                    ▶
+                </button>
+
+                <button onclick="toggleMusic()">
+                    ♫
+                </button>
+
+            </div>
+
+
+            <p class="final-message">
+                Happy Birthday! ♡
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
